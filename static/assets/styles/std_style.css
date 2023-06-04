@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box
+}
+
+/*  Contact Style */
+
+/* Contact Style  */
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Arial;
+
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    display: block;
+    margin: 10px;
+    border: none;
+    /* outline: none; */
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 90%;
+    margin: 10px;
+    
+}
+.righttab{
+    background-color:#918f8f;
+    height: 100%;
+    float: left;
+    width: 20%;
+}
+.lefttab{
+    height: 100%;
+    float: left;
+    width: 70%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+    font-weight: bolder;
+    font-size: larger;
+    overflow: auto;
+    width:250% ;   
+    height: 100%;
+    font-weight: bolder;
+    font-size: larger;
+    overflow: auto;
+}
+#studentInfo ,
+#courses ,
+#studyTable, 
+#acadmicRegister,
+#coursesGrades,
+#financialDetails
+,#logout,#DoctorComunicate
+{
+    background-color: gray;
+}
+.container{
+    height: 100%;
+    width: 100%;
+}
+.user__card{
+    font-size: 1.5rem;
+    color: aliceblue;
+}
+.user__card .logo img{
+    display: inline-block;
+    width: 40%;
+    border-radius: 200px;
+    float: left;
+}
+.user__card h2{
+    display: inline-block;
+}
+
+
+/* specific tab content data */
+#courses ul li{
+    list-style: none;
+    padding: 10px;
+    font-size: 2rem;
+
+}
+/* #studyTable */
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    text-align: left;
+    padding: 5px 4px;
+    text-align: center;
+}
+
+tr:nth-child(even){background-color: #7a6c6c}
+
+th {
+    background-color: #055b3b;
+    color: white;
+}

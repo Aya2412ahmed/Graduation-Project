@@ -1,0 +1,170 @@
+{% extends 'std_dash_board.html' %}
+ {% block content %}
+
+<div id="courses" class="tabcontent">
+  <h3>courses Information</h3>
+  <ul>
+    {% for course in courses %}
+    <li>{{course.name}}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock content %}
+{% comment %} 
+
+{% block studentInfo %}
+                <div id="studentInfo" class="tabcontent">
+                    <h3>Student Information</h3>
+                    <h4 style="display: inline-block;">Arabic Name  : </h4>
+                    <input type="text"value="{{request.user.first_name }}{{request.user.last_name}}" >
+                    <br>
+                    <h4 style="display: inline-block;">English Name  : </h4>
+                    <input type="text"value="" >
+                    <br>
+                    <h4 style="display: inline-block;">Gender  : </h4>
+                        {{request.user.gender}}
+                    <br>    
+                    <h4 style="display: inline-block;">Religion  : </h4>
+                    <input type="text"value="{{request.user.phone}}" >                    
+                    <h4 style="display: inline-block;">pirth Date : </h4>
+                    <input type="date"value="{{request.user.date}}" >                    <br>
+                    <h4 style="display: inline-block;">National ID  : </h4>
+                    <input type="text"value="{{request.user.nid}}" >                    <br>
+                    <h3 style="display: inline-block;">Family Details  : </h3>
+                    <br>
+                    <h4 style="display: inline-block;">Father Name   : </h4>
+                    <input type="text"value="{{request.user.}}" >
+
+                    <br>
+                    <h4 style="display: inline-block;">Father Job   : </h4>
+                    <input type="text"value="{{request.user.}}" >
+
+                    <br>
+                    <h4 style="display: inline-block;">City : </h4>
+                    <input type="text"value="{{request.user.city}}" >
+
+                    </select>
+                    <br>
+                    <h4 style="display: inline-block;">Phone  :  </h4>
+                    <input type="text"value="{{request.user.phone}}" >
+                    <br>
+                </div>
+                {% endblock studentInfo %}
+                {% block courses %}
+                {% include 'courses.html' %}
+                {% endblock courses %}
+                {% block studyTable %}
+                <div id="studyTable" class="tabcontent">
+                    <h3>study Table Information</h3>
+                    <table border="2">
+                        <tr>
+                            <th>Days / Hours</th>
+                            <th>8:10</th>
+                            <th>10:12</th>
+                            <th>12:2</th>
+                            <th>2:4</th>
+                        </tr>
+                        <tr>
+                            <th>satrday </th>
+                            <td>course 1 </td>
+                            <td>course 2 </td>
+                            <td>course 3 </td>
+                            <td>course 4 </td>
+                        </tr>
+                        <tr>
+                            <th>sunday </th>
+                            <td>course 1 </td>
+                            <td>course 2 </td>
+                            <td>course 3 </td>
+                            <td>course 4 </td>
+                        </tr>
+                        <tr>
+                            <th>Tuesday </th>
+                            <td>course 1 </td>
+                            <td>course 2 </td>
+                            <td>course 3 </td>
+                            <td>course 4 </td>
+                        </tr>
+                        <tr>
+                            <th>Wensday </th>
+                            <td>course 1 </td>
+                            <td>course 2 </td>
+                            <td>course 3 </td>
+                            <td>course 4 </td>
+                        </tr>
+                        <tr>
+                            <th>thrusday </th>
+                            <td>course 1 </td>
+                            <td>course 2 </td>
+                            <td>course 3 </td>
+                            <td>course 4 </td>
+                        </tr>
+                        <tr>
+                            <th>satrday </th>
+                            <td>course 1 </td>
+                            <td>course 2 </td>
+                            <td>course 3 </td>
+                            <td>course 4 </td>
+                        </tr>
+                    </table>
+                </div>
+                {% endblock studyTable %}
+
+                {% block acadmicRegister %}
+                <div id="acadmicRegister" class="tabcontent">
+                    <h3>Acadmic Register</h3>
+                    <p>Here acadmicRegister </p>
+                </div>
+                {% endblock acadmicRegister %}
+                
+                {% block coursesGrades %}
+                <div id="coursesGrades" class="tabcontent">
+                    <h1>coursesGrades</h1>
+                    <table>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Credit Hours</th>
+                            <th>Grade</th>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                    </table>
+                </div>
+                {% endblock coursesGrades %}
+                {% block financialDetails %}
+                <div id="financialDetails" class="tabcontent">
+                    <h3>financial Details</h3>
+                    <p>Here Some information about financial Details</p>
+                </div>  
+                {% endblock financialDetails %}
+                
+{% endcomment %}

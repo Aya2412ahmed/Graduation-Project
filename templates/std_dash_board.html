@@ -1,0 +1,241 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'assets/styles/std_style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+        
+        <style>
+        
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="righttab">
+                <div class="user__card">
+                    <div class="logo">
+                        <img src="{% static 'assets/imgs/img_avatar2.png' %}" alt="user">
+                    </div>
+                    <div class="user-info">
+                        <h2>{{request.user.username}} </h2>
+                        <p>3 <sup>rd</sup> Year  </p>
+                    </div>
+                </div>
+                <button class="tablink" onclick="openPage('studentInfo', this, 'gray')"id="defaultOpen"">student Information <a href="courses"></a></button>
+                <button class="tablink" onclick="openPage('courses', this, 'gray')">courses</button>
+                <button class="tablink" onclick="openPage('studyTable', this, 'gray')">Study Table</button>
+                <button class="tablink" onclick="openPage('acadmicRegister', this, 'gray')">Acadmic Register</button>
+                <button class="tablink" onclick="openPage('coursesGrades', this, 'gray')">Courses Grades</button>
+                <button class="tablink" onclick="openPage('financialDetails', this, 'gray')">Financial Details</button>
+                <button class="tablink" onclick="openPage('DoctorComunicate', this, 'gray')">Doctor Comunicate</button>
+                <a class="tablink"href="{% url 'logout' %}" >Log out</a>
+            </div>
+            <div class="lefttab">
+                {% block studentInfo %}
+                <div id="studentInfo" class="tabcontent">
+                    <h3>Student Information</h3>
+                    <h4 style="display: inline-block;">Arabic Name  : </h4>
+                    <input type="text"value="{{request.user.first_name }}{{request.user.last_name}}" >
+                    <br>
+                    <h4 style="display: inline-block;">English Name  : </h4>
+                    <input type="text"value="" >
+                    <br>
+                    <h4 style="display: inline-block;">Gender  : </h4>
+                        {{request.user.gender}}
+                    <br>    
+                    <h4 style="display: inline-block;">Religion  : </h4>
+                    <input type="text"value="{{request.user.phone}}" >                    
+                    <h4 style="display: inline-block;">pirth Date : </h4>
+                    <input type="date"value="{{request.user.birth_date}}" >                    <br>
+                    <h4 style="display: inline-block;">National ID  : </h4>
+                    <input type="text"value="{{request.user.nid}}" >                    <br>
+                    <h3 style="display: inline-block;">Family Details  : </h3>
+                    <br>
+                    <h4 style="display: inline-block;">Father Name   : </h4>
+                    <input type="text"value="{{request.user.}}" >
+
+                    <br>
+                    <h4 style="display: inline-block;">Father Job   : </h4>
+                    <input type="text"value="{{request.user.}}" >
+
+                    <br>
+                    <h4 style="display: inline-block;">City : </h4>
+                    <input type="text"value="{{request.user.city}}" >
+
+                    </select>
+                    <br>
+                    <h4 style="display: inline-block;">Phone  :  </h4>
+                    <input type="text"value="{{request.user.phone}}" >
+                    <br>
+                </div>
+                {% endblock studentInfo %}
+                {% block courses %}
+                <div id="courses" class="tabcontent">
+                    <h3>courses Information</h3>
+                    <ul>
+                      {% for course in courses_list %}
+                      <li>{{course.name}}</li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endblock courses %}
+                
+                {% block studyTable %}
+                <div id="studyTable" class="tabcontent">
+                    <h3>study Table Information</h3>
+                    <table border="2">
+                        <tr>
+                            <th>Days / Hours</th>
+                            <th>8:10</th>
+                            <th>10:12</th>
+                            <th>12:2</th>
+                            <th>2:4</th>
+                        </tr>
+                        <tr>
+                            <th>satrday </th>
+                            <td> </td>
+                            <td>Economics </td>
+                            <td>IS</td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <th>sunday </th>
+                            <td>Manegment</td>
+                            <td></td>
+                            <td>IT</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Tuesday </th>
+                            <td></td>
+                            <td>DataBase</td>
+                            <td></td>
+                            <td>ERP</td>
+                        </tr>
+                        <tr>
+                            <th>Wensday </th>
+                            <td></td>
+                            <td>Computer Apps </td>
+                            <td></td>
+                            <td>OOP</td>
+                        </tr>
+                        <tr>
+                            <th>thrusday </th>
+                            <td>Economics </td>
+                            <td> </td>
+                            <td> </td>
+                            <td>Laps </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                {% endblock studyTable %}
+                
+                {% block acadmicRegister %}
+                <div id="acadmicRegister" class="tabcontent">
+                    <h3>here your acadmic subjects you regitred </h3>
+                    <h3>courses Information</h3>
+                    <ul>
+                      {% for course in courses_list %}
+                      <li>{{course.name}}</li>
+                      {% endfor %}
+                    </ul>
+                </div>
+                {% endblock acadmicRegister %}
+                
+                {% block coursesGrades %}
+                <div id="coursesGrades" class="tabcontent">
+                    <h1>coursesGrades</h1>
+                    <table>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Name</th>
+                            <th>Credit Hours</th>
+                            <th>Grade</th>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                        <tr>
+                            <td>CS141</td>
+                            <td>Programming Fundamentals</td>
+                            <td>3</td>
+                            <td>C-</td>
+                        </tr>
+                    </table>
+                </div>
+                {% endblock coursesGrades %}
+                {% block financialDetails %}
+                <div id="financialDetails" class="tabcontent">
+                    <h3>financial Details</h3>
+                    <ul>
+                      {% for course in courses_list %}
+                      <li>{{course.name}} : {{course.price }} EGP</li> 
+                      {% endfor %}
+                    </ul>
+                </div>  
+                {% endblock financialDetails %}
+                <div id="DoctorComunicate" class="tabcontent" style="background-color:gray;">
+                    <div class="row d-lg-flex flex-column justify-content-lg-center align-items-lg-center">
+                        <div class="col d-lg-flex flex-column justify-content-lg-center align-items-lg-center">
+                            <div class="card mb-5" dir="rtl" ln="ar">
+                                <div class="card-body p-sm-5" style="width: 930px;margin: 8px;">
+                                    <h2 class="text-center mb-4"style="color:black">Contact with Staff</h2>
+                                    <form method="post">
+                                        <div class="mb-3"><input class="form-control form-control" type="text" id="name-2" name="name" placeholder="Name" required></div>
+                                        <div class="mb-3"><input class="form-control form-control" type="email" id="email-2" name="email" placeholder="email" required></div>
+                                        <div class="mb-3"><textarea class="form-control form-control" id="message-2" name="message" rows="6" placeholder="message"></textarea></div>
+                                        <div><button class="btn d-block w-100" style="background-color: #049DD9;color: white; " type="submit">Send</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                </div>  
+            </div>
+        </div>
+        <script>
+        function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        </script>
+        
+    </body>
+</html> 

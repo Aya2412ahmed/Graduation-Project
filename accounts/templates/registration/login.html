@@ -1,0 +1,69 @@
+{% comment %} {% extends "base_generic.html" %} {% endcomment %}
+{% load static %}
+{% comment %} CSS  imgs Bootstrab {% endcomment %}
+
+{% load bootstrap4 %}
+{% comment %}  {% endcomment %}
+{% load crispy_forms_tags %}
+
+{% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+  <!DOCTYPE html>
+  <html>
+  
+      <head>
+          <title>login Form</title>
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+          <!--Stylesheet-->
+         
+          <link rel="stylesheet" href="{% static 'assets/styles/login form style.css' %}"media="screen">
+          <style >
+            body{
+                  background-color:white;
+              }
+          </style>
+      </head>
+      <body>
+  
+      
+      <div class="background">
+          <div class="shape"></div>
+          <div class="shape"></div>
+      </div>
+      <form method="post" style="background-color: #07b9ff;">
+        {% csrf_token %}
+        {% comment %} token form  {Security } {% endcomment %}
+
+        <h3 style="background-color: #07b9ff;">EST Minya</h3>
+          <label for="username">Username</label>
+          {{ form.username|as_crispy_field }}
+          {% comment %} <input type="text" placeholder="Email or Phone" id="username"> {% endcomment %}
+          <label for="password">Password</label>
+          {{ form.password|as_crispy_field }}
+          
+          {% comment %} <input type="password" placeholder="Password" id="password"> {% endcomment %}
+  
+          
+          
+            <button type="submit" >Log In</button>
+          
+      </form>
+  </body>
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p>
+    {% comment %} <a href="{% url 'password_reset' %}">Lost password?</a></p> {% endcomment %}
+
+  </body>
+  </html> 
